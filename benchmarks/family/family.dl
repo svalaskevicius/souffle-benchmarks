@@ -1,12 +1,20 @@
-.decl father      (node1:number, node2:number) input
-.decl mother      (node1:number, node2:number) input
+.decl father      (node1:number, node2:number) 
+.input father      
+.decl mother      (node1:number, node2:number) 
+.input mother      
 
-.decl parent      (node1:number, node2:number) printsize
-.decl ancestor    (node1:number, node2:number) printsize
-.decl grandmother (node1:number, node2:number) printsize
-.decl sibling      (node1:number, node2:number) printsize
-.decl cousin       (node1:number, node2:number) printsize
-.decl relative       (node1:number, node2:number) printsize
+.decl parent      (node1:number, node2:number)
+.printsize parent      
+.decl ancestor    (node1:number, node2:number)
+.printsize ancestor    
+.decl grandmother (node1:number, node2:number)
+.printsize grandmother 
+.decl sibling      (node1:number, node2:number)
+.printsize sibling      
+.decl cousin       (node1:number, node2:number)
+.printsize cousin       
+.decl relative       (node1:number, node2:number)
+.printsize relative       
 
 parent(X,Y) :- father(X,Y).
 parent(X,Y) :- mother(X,Y).  

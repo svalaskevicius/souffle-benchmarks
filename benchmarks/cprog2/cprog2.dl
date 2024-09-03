@@ -6,12 +6,17 @@
 //while(z > y){ y++ }
 //assert(x = y = z)
 
-.decl low(x:number) input
-.decl med(x:number) input
-.decl high(x:number) input
+.decl low(x:number) 
+.input low
+.decl med(x:number) 
+.input med
+.decl high(x:number) 
+.input high
 
-.decl loop(i:number, x:number, y:number, z:number) output
-.decl Res() output
+.decl loop(i:number, x:number, y:number, z:number)
+.output loop
+.decl Res()
+.output Res
 
 loop(0, 0, 0, 0).
 loop(1, x, l, z) :- loop(0, x, _, z),low(l).

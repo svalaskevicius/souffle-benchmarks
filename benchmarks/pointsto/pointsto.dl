@@ -1,15 +1,22 @@
 // simple call-insensitive field-sensitive points-to analysis in Datalog
-.type Variable 
-.type Allocation
-.type Field
+.type Variable  <: symbol
+.type Allocation <: symbol
+.type Field <: symbol
 
-.decl AssignAlloc(var:Variable, heap:Allocation) input
-.decl Assign(source:Variable, destination:Variable) output
-.decl PrimitiveAssign(source:Variable, dest:Variable) input
-.decl Load(base:Variable, dest:Variable, field:Field) input
-.decl Store(source:Variable, base:Variable, field:Field) input
-.decl VarPointsTo(var:Variable, heap:Allocation) output
-.decl Alias(x:Variable,y:Variable) output
+.decl AssignAlloc(var:Variable, heap:Allocation)
+.input AssignAlloc
+.decl Assign(source:Variable, destination:Variable)
+.output Assign
+.decl PrimitiveAssign(source:Variable, dest:Variable)
+.input PrimitiveAssign
+.decl Load(base:Variable, dest:Variable, field:Field)
+.input Load
+.decl Store(source:Variable, base:Variable, field:Field)
+.input Store
+.decl VarPointsTo(var:Variable, heap:Allocation)
+.output VarPointsTo
+.decl Alias(x:Variable,y:Variable)
+.output Alias
 
 Assign(var1, var2) :- 
   PrimitiveAssign(var1,var2). 

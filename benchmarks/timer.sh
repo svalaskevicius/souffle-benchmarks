@@ -44,7 +44,7 @@ simple() {
   local row=$(mktemp tmp.XXXXX)
   local output=$(mktemp -u tmp.XXXXX)
   # put necessary permissions
-  chmod +x $SOUFFLE-compile
+  # chmod +x $SOUFFLE-compile
 
   printf "$PROGRAM," > $row
   
@@ -67,8 +67,7 @@ simple() {
   fi
 
   ## this is for cpp->.o
-  /usr/bin/time -f  ",%e,%U,%S,%M" -o $result \
-  $SOUFFLE-compile $output.cpp
+  /usr/bin/time -f  ",%e,%U,%S,%M" -o $result $SOUFFLE-compile.py -o $output $output.cpp
 
   if [[ $? -eq 0 ]]; then
      perl -pi -e 'chomp if eof' $result

@@ -1,22 +1,34 @@
 // Example adapted (hacked) from Olson, Gunter, Madhusudan CCS'08, Data is random
 
-.decl view_employee(x : number, p:number, ssn:number, s:number, e:number, d:number, pos:number, bday:number) output
-.decl view_cwPriv(n : number, person :number, bank1Priv :number, bank2Priv : number) input
-.decl view_bank1(n :number, Data1 :number, Data2 :number) input
-.decl view_bank2(n :number, Data1 : number, Data2:number) input
+.decl view_employee(x : number, p:number, ssn:number, s:number, e:number, d:number, pos:number, bday:number)
+.output view_employee
+.decl view_cwPriv(n : number, person :number, bank1Priv :number, bank2Priv : number) 
+.input view_cwPriv
+.decl view_bank1(n :number, Data1 :number, Data2 :number) 
+.input view_bank1
+.decl view_bank2(n :number, Data1 : number, Data2:number) 
+.input view_bank2
 
-.decl employee(person : number, ssn: number, salary : number, email: number, dept : number, pos : number, bday : number) input
+.decl employee(person : number, ssn: number, salary : number, email: number, dept : number, pos : number, bday : number) 
+.input employee
 
-.decl inslogtable(user :number, person :number, day : number) input
+.decl inslogtable(user :number, person :number, day : number) 
+.input inslogtable
 
-.decl insurance(user : number) input
+.decl insurance(user : number) 
+.input insurance
 
-.decl bank1(d:number, d2:number) input
-.decl bank2(d:number, d2:number) input
+.decl bank1(d:number, d2:number) 
+.input bank1
+.decl bank2(d:number, d2:number) 
+.input bank2
 
-.decl inscwPriv(user : number, x:number, y:number) input
-.decl delcwPriv(user:number, x:number, y:number) input
-.decl cwPriv(person:number, bank1Priv : number, Bank2Privi : number) input
+.decl inscwPriv(user : number, x:number, y:number) 
+.input inscwPriv
+.decl delcwPriv(user:number, x:number, y:number) 
+.input delcwPriv
+.decl cwPriv(person:number, bank1Priv : number, Bank2Privi : number) 
+.input cwPriv
 
 
 view_employee(4, Person, SSN, Salary, Email, Dept, Position, Bday) :- 

@@ -1,8 +1,11 @@
-.decl low(x:number) input
-.decl high(x:number) input
+.decl low(x:number) 
+.input low
+.decl high(x:number) 
+.input high
 
 .decl loop(i:number, x:number, y:number, z:number)
-.decl R() output
+.decl R()
+.output R
 
 loop(0, 0, l, 1) :- low(l).
 loop(1, h, y, z) :- loop(0, _, y, z), high(h).

@@ -7,7 +7,7 @@
 
 // ---- some type definitions -----
 
-.type node
+.type node <: symbol
 
 
 // ---------------------------------
@@ -76,7 +76,8 @@
 
 .init SocialNet = DiGraph
 
-.decl SNet(x:node,y:node) input
+.decl SNet(x:node,y:node) 
+.input SNet
 SocialNet.edge(X,Y) :- SNet(X,Y).
 
 SocialNet.edge("luke","leia").
@@ -90,7 +91,8 @@ Equal.edge("5","V").
 
 
 // some output
-.decl result ( x : symbol ) output
+.decl result ( x : symbol )
+.output result 
 result("Star Wars IV-VI happend!") :- SocialNet.reachable("han","leia").
 result("Luke isn't a good buddy!") :- !SocialNet.reachable("leia","han").
 
@@ -99,9 +101,12 @@ result("five is V") :- Equal.reachable("five","V").
 
 .init London = Traffic
 
-.decl Train(x:node,y:node) input
-.decl Ship(x:node,y:node) input
-.decl Cap(x:node,y:node) input
+.decl Train(x:node,y:node) 
+.input Train
+.decl Ship(x:node,y:node) 
+.input Ship
+.decl Cap(x:node,y:node) 
+.input Cap
 
 London.train.edge("Airport","Waterloo").
 London.train.edge(X,Y) :- Train(X,Y).

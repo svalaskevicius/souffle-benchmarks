@@ -2,11 +2,13 @@
 // Rafael Caballero-Rold\'an, 2007
 // Adopted from DES
 
-.type D
+.type D <: symbol
 
-.decl orbits  (x:D,y:D) input
+.decl orbits  (x:D,y:D) 
+.input orbits  
 .decl intermediate (x:D,y:D)
-.decl satellite (x:D,y:D) printsize
+.decl satellite (x:D,y:D)
+.printsize satellite 
 
 orbits(X,Y) :-  
   orbits(X,Z),  

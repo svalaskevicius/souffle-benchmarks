@@ -3,12 +3,16 @@
 //2: while( y < z) { y++; }
 //3: assert(y = high);
 
-.decl low(x:number) input
-.decl med(x:number) input
-.decl high(x:number) input
+.decl low(x:number) 
+.input low
+.decl med(x:number) 
+.input med
+.decl high(x:number) 
+.input high
 
 .decl loop(line: number, x:number, y:number, z:number)
-.decl Res() output
+.decl Res()
+.output Res
 
 loop(0, l, m, h) :- low(l), med(m), high(h).
 

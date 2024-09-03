@@ -1,6 +1,8 @@
 // Type declarations 
 // Set output flag depending on stage 
-.decl A (x:number, y:number) input printsize
+.decl A (x:number, y:number) 
+.input A
+.printsize A 
 
 // Transitive Closure 
 A(x,z) :- A(x,y), A(y,z).

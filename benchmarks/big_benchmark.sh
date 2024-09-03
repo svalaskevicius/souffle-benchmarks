@@ -2,7 +2,7 @@
 OUTDIR=""
 SOUFFLE=""
 
-programs=(antlr bloat jython chart eclipse fop hsqldb pmd xalan)
+programs=(antlr bloat jython chart eclipse fop hsqldb pmd xalan luindex)
 programs_small=(antlr eclipse xalan)
 setting="2-object-sensitive+heap"
  
@@ -34,7 +34,7 @@ fi
 mkdir -p $OUTDIR
 
 ## NOW START RUNNING THE BENCHMARKS
-for program in ${programs_small[@]}; do
+for program in ${programs[@]}; do
   src=$setting/souffle-$program
 
   if [ ! -f $OUTDIR/$program.csv ]; then

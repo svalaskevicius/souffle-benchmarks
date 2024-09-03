@@ -1,15 +1,15 @@
-.type NumConstant <: symbol
+.type NumConstant = symbol
 .decl isNumConstant(?n:NumConstant)
-.type Modifier <: symbol
+.type Modifier = symbol
 .decl isModifier(?m:Modifier)
-.type Annotation <: symbol
+.type Annotation = symbol
 .decl isAnnotation(?a:Annotation)
 .decl Modifier_abstract(?mod:Modifier)
 .decl Modifier_final(?mod:Modifier)
 .decl Modifier_public(?mod:Modifier)
 .decl Modifier_private(?mod:Modifier)
 .decl Modifier_static(?mod:Modifier)
-.type Type <: symbol
+.type Type = symbol
 .type PrimitiveType = Type
 .type ReferenceType = Type
 .type NullType = ReferenceType
@@ -40,7 +40,7 @@
 .decl Type_null(?t:PrimitiveType)
 .decl Type_object(?t:PrimitiveType)
 .decl ClassModifier(?mod:Modifier, ?class:ReferenceType)
-.type Field <: symbol
+.type Field = symbol
 .decl isField(?field:Field)
 .decl Field_DeclaringType(?field:Field, ?declaringClass:ReferenceType)
 .decl Field_SimpleName(?field:Field, ?simpleName:symbol)
@@ -48,7 +48,7 @@
 .decl Field_Modifier(?mod:Modifier, ?field:Field)
 .type MethodDescriptor = symbol
 .decl isMethodDescriptor(?md:MethodDescriptor)
-.type Method <: symbol
+.type Method = symbol
 .decl isMethod(?m:Method)
 .decl isOpaqueMethod(?m:Method)
 .decl Method_DeclaringType(?method:Method, ?declaringType:ReferenceType)
@@ -57,19 +57,19 @@
 .decl Method_Params(?method:Method, ?params:symbol)
 .decl Method_Descriptor(?method:Method, ?descriptor:MethodDescriptor)
 .decl Method_Arity(?method:Method, ?arity:number)
-.type JVMDescriptor <: symbol
+.type JVMDescriptor = symbol
 .decl isJVMDescriptor(?jvmd:JVMDescriptor)
 .decl Method_JVMDescriptor(?method:Method, ?descriptor:JVMDescriptor)
 .decl Method_Modifier(?mod:Modifier, ?method:Method)
 .decl Method_DeclaresException(?exceptionType:ReferenceType, ?method:Method)
 .decl FormalParam(?index:number, ?method:Method, ?var:Var)
 .decl ThisVar(?method:Method, ?var:Var)
-.type Var <: symbol
+.type Var = symbol
 .decl isVar(v:Var)
 .decl Var_Type(?var:Var, ?type:Type)
 .decl Var_DeclaringMethod(?var:Var, ?method:Method)
 .decl ApplicationVar(?var:Var)
-.type HeapAllocation <: symbol
+.type HeapAllocation = symbol
 .type NormalHeap = HeapAllocation
 .type StringConstant = HeapAllocation
 .type ClassHeap = HeapAllocation
@@ -95,7 +95,7 @@
 .decl MethodHandleConstant_Arity(?heap:MethodHandleConstant, ?arity:number)
 .decl MethodTypeConstant_Arity(?heap:MethodTypeConstant, ?arity:number)
 .decl MethodTypeConstant_ReturnType(?heap:MethodTypeConstant, ?retType:Type)
-.type Instruction <: symbol
+.type Instruction = symbol
 .decl isInstruction(?insn:Instruction)
 .decl Instruction_Index(?insn:Instruction, ?index:number)
 .decl Instruction_Line(?insn:Instruction, ?index:number)
@@ -245,7 +245,7 @@
 .decl SpecialMethodInvocation_SimpleName(?invocation:MethodInvocation, ?simplename:symbol)
 .decl SpecialMethodInvocation_Descriptor(?invocation:MethodInvocation, ?descriptor:MethodDescriptor)
 .decl MethodInvocation_Base(?invocation:MethodInvocation, ?base:Var)
-.type ExceptionHandler <: symbol
+.type ExceptionHandler = symbol
 .decl isExceptionHandler(?handler:ExceptionHandler)
 .decl ExceptionHandler_Method(?handler:ExceptionHandler, ?inmethod:Method)
 .decl ExceptionHandler_Index(?handler:ExceptionHandler, ?index:number)
@@ -2315,7 +2315,7 @@ CollectionLibraryClass(?class) :-
   isClassType(?class),
   !ApplicationClass(?class),
   isType(?class),
-  match("java\.util.*", ?class).
+  match("java\\.util.*", ?class).
   HeapAllocation_ContextInsensitive(?heap) :-
     SpecialLibraryObject(?heap),
     !HeapRepresentative(_, ?heap).
